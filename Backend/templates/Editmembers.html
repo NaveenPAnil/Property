@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-body">
+           <div class="card-title">Our Members</div>
+           <hr>
+            <form method="post" action="{% url 'updatemembers' memberid=mdata.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">Member Name</label>
+            <input type="text" class="form-control" id="input-1" placeholder="Enter member Name" name="m_name" value="{{mdata.Name}}">
+           </div>
+
+           <div class="form-group">
+            <label for="input-1">Member Role</label>
+            <input type="text" class="form-control" id="input-2" placeholder="Enter role" name="m_role" value="{{mdata.Role}}">
+           </div>
+
+              <div>
+                    <img src="{{mdata.Image.url}}" height="100px" width="100px">
+                </div>
+                   <div class="form-group">
+                    <label for="input-2">Profile Image</label>
+                    <input type="file" class="form-control" id=" " name="m_img">
+           </div>
+<!--           <div class="form-group py-2">-->
+<!--             <div class="icheck-material-white">-->
+<!--            <input type="checkbox" id="user-checkbox1" checked="">-->
+<!--            <label for="user-checkbox1">I Agree Terms &amp; Conditions</label>-->
+<!--            </div>-->
+<!--           </div>-->
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i></i> Add</button>
+          </div>
+          </form>
+         </div>
+</body>
+</html>
+{% endblock %}

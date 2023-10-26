@@ -1,0 +1,822 @@
+
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="favicon.png" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <title>
+      Property &mdash; Free Bootstrap 5 Website Template by Untree.co
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="index.html" class="logo m-0 float-start">Property</a>
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li><a href="{% url 'homepage' %}">Home</a></li>
+              <li class="has-children">
+                <a href="properties.html">Properties</a>
+                <ul class="dropdown">
+                  <li><a href="#">Buy Property</a></li>
+                  <li><a href="#">Sell Property</a></li>
+                  <li class="has-children">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown">
+                      <li><a href="#">Sub Menu One</a></li>
+                      <li><a href="#">Sub Menu Two</a></li>
+                      <li><a href="#">Sub Menu Three</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About</a></li>
+              <li class="active"><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="hero page-inner overlay"
+      style="background-image: url({% static 'images/hero_bg_3.jpg' %})"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">
+              {{data.Property_Address}}
+            </h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="properties.html">Properties</a>
+                </li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  {{data.Property_Address}}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-7">
+            <div class="img-property-slide-wrap">
+              <div class="img-property-slide">
+                <img src="{{data.Photo1.url}}" alt="Image" class="img-fluid" />
+                <img src="{{data.Photo2.url}}" alt="Image" class="img-fluid" />
+                <img src="{{data.Photo3.url}}" alt="Image" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h2 class="heading text-primary">{{data.Property_Address}}</h2>
+            <p class="meta">{{data.Property_place}}</p>
+
+
+
+            <div class="specs d-flex mb-4">
+                        <span class="d-block d-flex align-items-center me-3">
+                          <span class="icon-bed me-2"></span>
+                          <span class="caption">{{data.Bedroom}} Bedrooms</span>
+                        </span>
+
+                        <span class="d-block d-flex align-items-center">
+                          <span class="icon-bath me-2"></span>
+                          <span class="caption">{{data.Bathroom}} Bathrooms</span>
+                        </span>
+
+              <div style="margin-left: 25px;"><span class="caption">{{data.SqFeet}}</span></div>
+
+
+
+            </div>
+
+            <p class="text-black-50">
+              {{data.Property_Description}}
+            </p>
+<!--            <div>-->
+<!--              <input type="text" value="{{request.session.Username}}" name="user_name">-->
+<!--              <input-->
+<!--                    type="text"-->
+<!--                    class="form-control"-->
+<!--                    value="{{data.Propertyplace}}"-->
+<!--                    name="p_place"-->
+<!--                  />-->
+<!--            </div>-->
+
+
+
+            <div class="d-block agent-box p-5">
+              <div>
+                   {% if data.Category_Name == "Buy" %}
+                  <h1 style="margin:0;font-size: 32px;">₹{{data.Rate}} Lakhs</h1>
+                  {% endif %}
+                    {% if data.Category_Name == "Rent" %}
+                  <h1 style="margin:0;font-size: 32px;">₹{{data.Rate}}/Month</h1>
+                  {% endif %}
+                  <button type="button" onclick="Toggle1()" id="btnh1" class="btn">
+                  <i class="fa-solid fa-heart" id="heartIcon"></i>
+                </button>
+                  <a id="shareButton" href="#" class="share-button" title="Share">
+        <i class="fa-solid fa-share-nodes" style="font-size: 18px; padding: 6px;"></i>
+      </a>
+
+              </div>
+              <div class="img mb-4" style="margin-top:20px">
+                <img
+                  src="{{data.Profile_Picture.url}}"
+                  alt="Image"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="text">
+                <h3 class="mb-0">{{data.Username}}</h3>
+                <div style="margin-top:5px" class="meta mb-3">{{data.Mobile}}
+                <h3>{{data.User_Place}}</h3>
+                </div>
+<!--                <a href="http://wa.me/+918281708649">Whatsapp</a>-->
+                <!-- ... (previous HTML code) ... -->
+
+<div class="col-12">
+  <form method="post" action="{% url 'saveenquiry' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="hidden" class="form-control" id="username" name="username" value="{{request.session.Username}}">
+    </div>
+    <div class="mb-3">
+      <input type="hidden" class="form-control" id="mobile" name="mobile" value="{{data.Mobile}}">
+      <input type="hidden" class="form-control" id="mobile1" name="u_mobile" value="{{pro.Mobile_User}}">
+      <input type="hidden" class="form-control" name="agname" value="{{data.Username}}">
+    </div>
+    <div class="mb-3">
+      <input type="hidden" class="form-control" id="property_address" name="property_address" value="{{data.Property_Address}}">
+    </div>
+    <button type="submit" class="btn btn btn-primary" style="border-radius: 0px;width:300px;font-size:20px;font-weight:500">Send Enquiry</button>
+  </form>
+</div><br>
+
+<!-- ... (remaining HTML code) ... -->
+
+                <div class="col-12">
+                  <a href="https://wa.me/+91{{data.Mobile}}"><button type="button" class="btn btn btn-primary" style="border-radius: 0px;width:300px;font-size:20px;font-weight:500">Whatsapp<i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></button></a>
+                </div><br>
+                <div class="col-12">
+                  <form method="post" action="{% url 'savewish' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{request.session.Username}}" name="user_name">
+            <input type="hidden" value="{{data.Property_place}}" name="pro_place">
+            <input type="hidden" value="{{data.Property_Address}}" name="pro_add">
+            <input type="hidden" value="{{data.Bedroom}}" name="pro_bed">
+            <input type="hidden" value="{{data.Bathroom}}" name="pro_bath">
+            <input type="hidden" value="{{data.Rate}}" name="pro_price">
+                  <button type="submit" class="btn btn btn-primary" style="border-radius: 0px;width:300px;font-size:20px;font-weight:500">Add to Wishlist</button>
+                  </form>
+
+                </div><br>
+                  <div>
+                   {% if data.Category_Name == "Rent" %}
+
+          <form method="post" action="{% url 'savecheckout' %}">
+              {% csrf_token %}
+
+                      <input type="hidden" id="currentDatetime" name="currentDatetime">
+                      <input type="hidden" value="{{request.session.Username}}" name="b_username">
+                      <input type="hidden" value="{{pro.Mobile_User}}" name="b_mobile">
+                      <input type="hidden" value="{{pro.Mail}}" name="b_mail">
+                      <input type="hidden" value="{{pro.Address}}" name="b_address">
+                      <input type="hidden" value="{{data.Property_Address}}" name="b_proaddress">
+                      <input type="hidden" value="{{data.Rate}}" name="b_price">
+                      <input type="hidden" value="{{data.Username}}" name="ag_name">
+                      <input type="hidden" value="{{data.Mobile}}" name="ag_mob">
+<button type="submit" class="btn btn-primary"   style="border-radius: 0px;width:300px;font-size:20px;font-weight:500">
+  Pay Amount
+</button>
+          </form>
+         {% endif %}     </div>
+
+                   <div>
+           <!-- Button trigger modal -->
+           {% if data.Category_Name == "Buy" %}
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border-radius: 0px;width:300px;font-size:20px;font-weight:500">
+  Calculate Mortage
+</button></div><br>
+                           <div>
+   <button type="submit" class="btn btn-primary" style="border-radius: 0px;width:300px;font-size:20px;font-weight:500" data-toggle="modal" data-target="#bookVisitModal">
+  Book a Visit
+</button>
+           {% endif %}
+       </div><br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 500px">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EMI Calculator</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Add this section within the <body> tag of your HTML -->
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>EMI Calculator</h5>
+                    <div class="mb-3">
+                        <label for="originalPrice">Original Price (₹):</label>
+                        <input type="text" id="originalPrice" value="{{data.Rate}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="downPayment">Down Payment (₹):</label>
+                        <input type="number" id="downPayment" min="200000">
+                    </div>
+                    <div class="mb-3">
+                        <label for="years">Loan Term (Years):</label>
+                        <input type="number" id="years" min="3" max="7">
+                    </div>
+                    <div class="mb-3">
+                        <label for="interestRate">Interest Rate (%):</label>
+                        <input type="number" id="interestRate" min="8" max="14" >
+                    </div>
+                    <div>
+
+                    <button type="button" onclick="calculateEMI()" class="btn btn-primary">Calculate EMI</button>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5>EMI Result</h5>
+                    <p id="emiResult"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--                  modal ends-->
+                                   <!-- Modal -->
+<div id="bookVisitModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookVisitModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookVisitModalLabel">Book a Visit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add your form or content for booking a visit here -->
+             <form method="POST" action="{% url 'bookvisit' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="nameInput">Name</label>
+                  <input type="text" class="form-control" id="nameInput" name="name" value="{{request.session.Username}}" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="dateInput">Visiting Date</label>
+                  <input type="date" class="form-control" id="dateInput" name="visiting_date" required>
+                </div>
+                <div class="form-group">
+                  <label for="timeInput">Time</label>
+                  <input type="time" class="form-control" id="timeInput" name="visiting_time" required>
+                </div>
+                <div class="form-group">
+                  <label for="mobileInput">Mobile</label>
+                  <input type="tel" class="form-control" id="mobileInput" name="mobile" required>
+                </div>
+                  <div class="form-group">
+                  <input type="hidden" class="form-control" name="pro_address" value="{{data.Property_Address}}">
+                </div>
+                <div class="form-group">
+                <div class="form-group">
+
+                  <input type="hidden" id="currentInput">
+                </div><br><br>
+                <button type="submit" class="btn btn-primary" style="font-size: 16px; padding: 5px 10px;border-radius:0px">Book Appointment</button>
+              </form>
+        <!-- For example, you can add a form with input fields for the user to fill out. -->
+      </div>
+    </div>
+  </div>
+</div>
+              
+
+                <ul class="list-unstyled social dark-hover d-flex">
+                  <li class="me-1">
+                    <a href="#"><span class="icon-instagram"></span></a>
+                  </li>
+                  <li class="me-1">
+                    <a href="#"><span class="icon-twitter"></span></a>
+                  </li>
+                  <li class="me-1">
+                    <a href="#"><span class="icon-facebook"></span></a>
+                  </li>
+                  <li class="me-1">
+                    <a href="#"><span class="icon-linkedin"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </form></div>
+        </div>
+      </div>
+    </div>
+<!--    #Maps-->
+    <div class="mappie">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25124.013726904304!2d76.50762842361429!3d9.596143501957524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062ba16c6b435f%3A0xbe2b02f68f8dd06e!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1693504114044!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+       <form method="post" action="{% url 'saverating' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="rating-form">
+        <h1>Rate Us</h1>
+        <div class="stars">
+            <span class="star" data-rating="1" onclick="updateRating(1)">&#9733;
+            </span>
+            <span class="star" data-rating="2" onclick="updateRating(2)">&#9733;
+            </span>
+            <span class="star" data-rating="3" onclick="updateRating(3)">&#9733;
+            </span>
+            <span class="star" data-rating="4" onclick="updateRating(4)">&#9733;
+            </span>
+            <span class="star" data-rating="5" onclick="updateRating(5)">&#9733;
+            </span>
+        </div>
+        <p hidden="hidden">Your Rating: <span id="selected-rating">0</span></p>
+        <input type="hidden" name="property_rating" id="property_rating" value="0">
+        <textarea id="suggestion" placeholder="Enter your suggestion" name="suggestion" required></textarea><br>
+        <input type="hidden" value="{{request.session.Username}}" name="username">
+
+
+
+        <button type="submit">Submit Rating</button>
+    </div>
+    </form>
+
+    <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Contact</h3>
+              <address>43 Raymouth Rd. Baltemoer, London 3910</address>
+              <ul class="list-unstyled links">
+                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+                <li>
+                  <a href="mailto:info@mydomain.com">info@mydomain.com</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Sources</h3>
+              <ul class="list-unstyled float-start links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+              <ul class="list-unstyled float-start links">
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Creative</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Links</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+
+              <ul class="list-unstyled social">
+                <li>
+                  <a href="#"><span class="icon-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-linkedin"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-pinterest"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-dribbble"></span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <!--
+              **==========
+              NOTE:
+              Please don't remove this copyright link unless you buy the license here https://untree.co/license/
+              **==========
+            -->
+
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . All Rights Reserved. &mdash; Designed with love by
+              <a href="https://untree.co">Untree.co</a>
+              <!-- License information: https://untree.co/license/ -->
+            </p>
+            <div>
+              Distributed by
+              <a href="https://themewagon.com/" target="_blank">themewagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.site-footer -->
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var btnvar1 = document.getElementById('btnh1');
+var heartIcon = document.getElementById('heartIcon');
+
+function Toggle1() {
+    if (heartIcon.style.color == "red") {
+        heartIcon.style.color = "grey";
+        localStorage.setItem('heartClicked', 'false');
+    } else {
+        heartIcon.style.color = "red";
+        localStorage.setItem('heartClicked', 'true');
+    }
+}
+
+// Check local storage for the heart button state and set the color accordingly
+window.addEventListener('load', function () {
+    var isHeartClicked = localStorage.getItem('heartClicked');
+    if (isHeartClicked === 'true') {
+        heartIcon.style.color = "red";
+    }
+});
+
+    </script>
+      <script>
+        // Check if the Web Share API is available in the browser
+        if (navigator.share) {
+            const shareButton = document.getElementById('shareButton');
+
+            shareButton.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent the default link behavior
+
+                // Define the data to be shared
+                const shareData = {
+                    title: 'Example Page',
+                    text: 'Check out this awesome page!',
+                    url: 'https://www.example.com'
+                };
+
+                // Use the share method to open the native sharing dialog
+                navigator.share(shareData)
+                    .then(() => console.log('Shared successfully'))
+                    .catch((error) => console.error('Error sharing:', error));
+            });
+        } else {
+            // Web Share API is not supported, provide a fallback
+            const shareButton = document.getElementById('shareButton');
+            shareButton.addEventListener('click', () => {
+                // Fallback: Copy the current page's URL to the clipboard
+                const currentUrl = window.location.href;
+                const textArea = document.createElement('textarea');
+                textArea.value = currentUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Page link copied to clipboard: ' + currentUrl);
+            });
+        }
+    </script>
+
+
+
+  <style>
+    .btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.btn i:hover{
+    cursor: pointer;
+}
+
+.mappie{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+iframe{
+    width: 80%;
+    height: 500px;
+}
+  </style>
+
+    <style>
+    /* styles.css */
+
+
+.rating-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray;
+    margin: 5px;
+}
+
+.star:hover,
+.star.active {
+    color: #ffc107;
+}
+
+#selected-rating {
+    font-weight: bold;
+    color: #ffc107;
+}
+
+textarea {
+    width: 80%;
+    height: 80px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #005555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004444;
+}
+
+</style>
+
+  <script>
+    // script.js
+document.addEventListener("DOMContentLoaded", function () {
+    const stars = document.querySelectorAll(".star");
+    const ratingDisplay = document.getElementById("selected-rating");
+    const suggestionField = document.getElementById("suggestion");
+    const submitButton = document.getElementById("submit-btn");
+
+    let selectedRating = 0;
+
+    // Event listener for star ratings
+    stars.forEach((star) => {
+        star.addEventListener("click", () => {
+            selectedRating = parseInt(star.getAttribute("data-rating"));
+            updateRatingDisplay();
+        });
+    });
+
+    // Update the rating display
+    function updateRatingDisplay() {
+        stars.forEach((star) => {
+            const rating = parseInt(star.getAttribute("data-rating"));
+            if (rating <= selectedRating) {
+                star.classList.add("active");
+            } else {
+                star.classList.remove("active");
+            }
+        });
+        ratingDisplay.textContent = selectedRating;
+    }
+
+    // Event listener for form submission
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const suggestion = suggestionField.value;
+        if (selectedRating === 0) {
+            alert("Please select a rating.");
+        } else if (!suggestion.trim()) {
+            alert("Please enter a suggestion.");
+        } else {
+            // You can send the rating and suggestion to your server here
+            alert(`Rating: ${selectedRating}\nSuggestion: ${suggestion}`);
+            // Optionally, reset the form
+            resetForm();
+        }
+    });
+
+    // Reset the form
+    function resetForm() {
+        selectedRating = 0;
+        suggestionField.value = "";
+        updateRatingDisplay();
+    }
+});
+
+</script>
+    <script>
+        function calculateEMI() {
+            // Get input values
+            const originalPrice = parseFloat(document.getElementById("originalPrice").value);
+            const downPayment = parseFloat(document.getElementById("downPayment").value);
+            const years = parseFloat(document.getElementById("years").value);
+            const interestRate = parseFloat(document.getElementById("interestRate").value);
+
+            // Calculate EMI
+            const principal = originalPrice - downPayment;
+            const monthlyInterestRate = (interestRate / 12) / 100;
+            const numberOfPayments = years * 12;
+
+            const emi = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+            // Display EMI result
+            document.getElementById("emiResult").textContent = `Monthly EMI: ₹${emi.toFixed(2)}`;
+        }
+    </script>
+
+       <script>
+
+  // Function to get the current datetime
+  function getCurrentDatetime() {
+    const now = new Date();
+    const formattedDatetime = now.toISOString(); // Format as ISO string (e.g., "2023-09-12T14:30:00.000Z")
+    return formattedDatetime;
+  }
+
+  // Set the value of the hidden input field
+  document.getElementById("currentDatetime").value = getCurrentDatetime();
+
+    </script>
+     <script>
+  // Get the current date and time
+  var currentDate = new Date();
+  var currentDateTimeString = currentDate.toLocaleString(); // Format as desired
+
+  // Set the value of the hidden input field
+  document.getElementById("currentInput").value = currentDateTimeString;
+</script>
+
+  <script>
+    function updateRating(rating) {
+        document.getElementById("selected-rating").textContent = rating;
+        document.getElementById("property_rating").value = rating;
+    }
+</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% if messages %}
+      {% for i in messages %}
+           {% if i.tags == 'warning' %}
+               <script>
+                    swal('{{i}}','','warning');
+               </script>
+           {% elif i.tags == 'error' %}
+               <script>
+                    swal('{{i}}','','error');
+               </script>
+           {% else %}
+               <script>
+                    swal('{{i}}','','success');
+               </script>
+           {% endif %}
+        {% endfor %}
+      {% endif %}
+  </body>
+</html>

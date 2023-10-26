@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-body">
+           <div class="card-title">Property Category</div>
+           <hr>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">User Name</label>
+            <input type="text" readonly class="form-control" id="input-1" placeholder="Enter Category Name" name="p_name" value="{{data.Username}}">
+           </div>
+
+            <div class="form-group">
+            <label for="input-1">Password</label>
+            <input type="text" readonly class="form-control" id="input-2" placeholder="Enter Category Name" name="p_name" value="{{data.Password}}">
+           </div>
+
+           <div class="form-group">
+            <label for="input-1">Mobile</label>
+            <input type="text" readonly class="form-control" id="input-3" placeholder="Enter Category Name" name="p_name" value="{{data.Mobile}}">
+           </div>
+
+            <div class="form-group">
+            <label for="input-1">Email</label>
+            <input type="text" readonly class="form-control" id="input-4" placeholder="Enter Category Name" name="p_name" value="{{data.Mail}}">
+           </div>
+
+
+                <div class="form-group">
+            <label for="input-2">Address</label>
+                    <textarea readonly class="form-control" id="input-5" placeholder="Enter category description" name="p_des">{{data.Address}}</textarea>
+           </div>
+
+                <div class="form-group">
+            <label for="input-1">Email</label>
+            <input type="text" readonly class="form-control" id="input-4" placeholder="Enter Category Name" name="p_name" value="{{data.Mail}}">
+           </div>
+<!--           <div class="form-group py-2">-->
+<!--             <div class="icheck-material-white">-->
+<!--            <input type="checkbox" id="user-checkbox1" checked="">-->
+<!--            <label for="user-checkbox1">I Agree Terms &amp; Conditions</label>-->
+<!--            </div>-->
+<!--           </div>-->
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i></i>Update</button>
+          </div>
+          </form>
+         </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-body">
+           <div class="card-title">Property Category</div>
+           <hr>
+            <form method="post" action="{% url 'savedata' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">Category Name</label>
+            <input type="text" class="form-control" id="input-1" placeholder="Enter Category Name" name="p_name">
+           </div>
+
+                <div class="form-group">
+            <label for="input-2">Description</label>
+                    <textarea class="form-control" id="input-2" placeholder="Enter category description" name="p_des"></textarea>
+           </div>
+                   <div class="form-group">
+                    <label for="input-2">Category Image</label>
+                    <input type="file" class="form-control" id=" " placeholder="Enter category Name" name="p_img">
+           </div>
+<!--           <div class="form-group py-2">-->
+<!--             <div class="icheck-material-white">-->
+<!--            <input type="checkbox" id="user-checkbox1" checked="">-->
+<!--            <label for="user-checkbox1">I Agree Terms &amp; Conditions</label>-->
+<!--            </div>-->
+<!--           </div>-->
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i></i> Add</button>
+          </div>
+          </form>
+         </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,584 @@
+
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <title>
+      Checkout
+    </title>
+  </head>
+  <body>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="index.html" class="logo m-0 float-start">Property</a>
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li><a href="{% url 'homepage' %}">Home</a></li>
+
+              <li class="active"><a href="#">Checkout</a></li>
+              <li><a href="{% url 'aboutpage' %}">About</a></li>
+              <li><a href="{% url 'contactpage' %}">Contact Us</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="hero page-inner overlay"
+      style="background-image: url({% static 'images/hero_bg_1.jpg' %})"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">CHECKOUT</h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  Checkout
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--Payment-->
+    <div class="container d-flex justify-content-center mt-5 mb-5">
+
+
+
+            <div class="row g-3">
+              {% for i in data %}
+
+              <div class="col-md-6">
+
+                <span>Payment Method</span>
+                <div class="card">
+
+                  <div class="accordion" id="accordionExample">
+
+                    <div class="card">
+                      <div class="card-header p-0" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="d-flex align-items-center justify-content-between">
+
+                              <span>Paypal</span>
+                              <img src="https://i.imgur.com/7kQEsHU.png" width="30">
+
+                            </div>
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <input type="text" class="form-control" placeholder="Paypal email">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header p-0">
+                        <h2 class="mb-0">
+                          <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="d-flex align-items-center justify-content-between">
+
+                              <span>We accept</span>
+                              <div class="icons">
+                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                                <img src="https://i.imgur.com/35tC99g.png" width="30">
+                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                              </div>
+
+                            </div>
+                          </button>
+                        </h2>
+                      </div>
+
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body payment-card-body">
+
+                          <span class="font-weight-normal card-text">Amount</span>
+                          <div class="input">
+
+                            <i class="fa fa-credit-card"></i>
+                            <input type="text" class="form-control" value="{{i.Price}}" readonly>
+
+                          </div>
+              <form method="post" action="{% url 'savepayment' %}">
+                {% csrf_token %}
+                          <span class="font-weight-normal card-text">Card Number</span>
+                          <div class="input">
+
+                            <i class="fa fa-credit-card"></i>
+                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="p_card" required maxlength="16" minlength="16">
+
+                          </div>
+
+                          <div class="row mt-3 mb-3">
+
+                            <div class="col-md-6">
+
+                              <div class="font-weight-normal card-text">Expiry Date</div>
+                              <div class="input">
+
+                                <i class="fa fa-calendar"></i>
+                                {{ form.p_exp }}
+                                <input type="text" class="form-control" placeholder="MM/YY" name="p_exp" required>
+
+                              </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                              <span class="font-weight-normal card-text">CVC/CVV</span>
+                              <div class="input">
+
+                                <i class="fa fa-lock"></i>
+                                <input type="password" class="form-control" placeholder="000" name="p_cvv" required>
+
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                          <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6">
+                  <span>Summary</span>
+
+                  <div class="card">
+
+                    <div class="d-flex justify-content-between p-3">
+
+                      <div class="d-flex flex-column">
+
+                        <span>Owned by : {{i.Agent_Name}} ,{{i.Agent_Mobile}}<i class="fa fa-caret-down"></i></span>
+<!--                        <a href="#" class="billing">Save 20% with annual billing</a>-->
+
+                      </div>
+
+                      <div class="mt-1">
+<!--                        <sup class="super-price">$9.99</sup>-->
+<!--                        <span class="super-month">/Month</span>-->
+                      </div>
+
+                    </div>
+
+                    <hr class="mt-0 line">
+
+                    <div class="p-3">
+
+                      <div class="d-flex justify-content-between mb-2">
+
+<!--                        <span>Refferal Bonouses</span>-->
+<!--                        <span>-$2.00</span>-->
+
+                      </div>
+
+                      <div class="d-flex justify-content-between">
+
+                        <span>{{i.Username}}  <i class="fa fa-clock-o"></i></span>
+                        <span>Email :: {{i.Mail}}</span>
+
+                      </div>
+
+
+                    </div>
+
+                    <hr class="mt-0 line">
+
+
+                    <div class="p-3 d-flex justify-content-between">
+
+                      <div class="d-flex flex-column">
+
+                        <span>Today you pay(INR)</span>
+
+
+                      </div>
+                      <span>₹ {{i.Price}}</span>
+
+
+
+                    </div>
+
+
+                    <div class="p-3" style="display:flex; justify-content: space-between;">
+
+
+
+                        <input type="hidden" value="{{i.Price}}" name="b_price">
+                        <input type="hidden" id="currentDatetime" name="currentDatetime">
+                        <input type="hidden" value="{{i.Username}}" name="b_username">
+                        <input type="hidden" value="{{i.Mobile_User}}" name="b_mobile">
+                        <input type="hidden" value="{{i.Mail}}" name="b_mail">
+                        <input type="hidden" value="{{i.Address}}" name="b_address">
+                        <input type="hidden" value="{{i.Property_Address}}" name="b_proaddress">
+                        <input type="hidden" value="{{i.Agent_Name}}" name="ag_name">
+                        <input type="hidden" value="{{i.Agent_Mobile}}" name="ag_mob">
+
+
+
+                      <button type="submit" class="btn btn-primary btn-block free-button">Pay</button>
+                      </form>
+                      <form action="{% url 'cancelbooking' dataid=i.Bookingid %}">
+                        <button type="submit" class="btn btn-primary btn-block free-button">Cancel</button>
+                      </form>
+
+
+
+                    </div>
+
+
+
+
+                  </div>
+              </div>
+
+            </div>
+
+
+
+          </div>
+    {% endfor %}
+<!--    Payment ends-->
+
+
+    <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Contact</h3>
+              <address>Kurusupally Road,Pala,Kottayam</address>
+              <ul class="list-unstyled links">
+                <li><a href="tel://8281708649">+91-8281-7086-49</a></li>
+                <li><a href="tel://7025018788">+91-7025-0187-88</a></li>
+                <li>
+                  <a href="naveenpanil2000@gmail.com">propertyonline@property.com</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Sources</h3>
+              <ul class="list-unstyled float-start links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+              <ul class="list-unstyled float-start links">
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Creative</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Links</h3>
+              <ul class="list-unstyled links">
+                <li><a href="{% url 'servicepage' %}">Our Vision</a></li>
+                <li><a href="{% url 'aboutpage' %}">About us</a></li>
+                <li><a href="{% url 'contactpage' %}">Contact us</a></li>
+              </ul>
+
+              <ul class="list-unstyled social">
+                <li>
+                  <a href="#"><span class="icon-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-linkedin"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-pinterest"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="icon-dribbble"></span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+          </div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <!--
+              **==========
+              NOTE:
+              Please don't remove this copyright link unless you buy the license here https://untree.co/license/
+              **==========
+            -->
+
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . All Rights Reserved. &mdash; Designed with love by
+              <a href="{% url 'homepage' %}">PROPERTY</a>
+              <!-- License information: https://untree.co/license/ -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.site-footer -->
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+     <script>
+
+  // Function to get the current datetime
+  function getCurrentDatetime() {
+    const now = new Date();
+    const formattedDatetime = now.toISOString(); // Format as ISO string (e.g., "2023-09-12T14:30:00.000Z")
+    return formattedDatetime;
+  }
+
+  // Set the value of the hidden input field
+  document.getElementById("currentDatetime").value = getCurrentDatetime();
+
+    </script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+       body{
+
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+       }
+
+
+
+       .card{
+
+        border: none;
+       }
+
+       .card-header {
+            padding: .5rem 1rem;
+            margin-bottom: 0;
+            background-color: rgba(0,0,0,.03);
+            border-bottom: none;
+        }
+
+        .btn-light:focus {
+            color: #212529;
+            background-color: #e2e6ea;
+            border-color: #dae0e5;
+            box-shadow: 0 0 0 0.2rem rgba(216,217,219,.5);
+        }
+
+        .form-control{
+
+          height: 50px;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    font-size: 14px;
+        }
+
+        .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #039be5;
+    outline: 0;
+    box-shadow: none;
+
+    }
+
+    .input{
+
+      position: relative;
+    }
+
+    .input i{
+
+          position: absolute;
+    top: 16px;
+    left: 11px;
+    color: #989898;
+    }
+
+    .input input{
+
+      text-indent: 25px;
+    }
+
+    .card-text{
+
+      font-size: 13px;
+    margin-left: 6px;
+    }
+
+    .certificate-text{
+
+      font-size: 12px;
+    }
+
+
+    .billing{
+      font-size: 11px;
+    }
+
+    .super-price{
+
+          top: 0px;
+    font-size: 22px;
+    }
+
+    .super-month{
+
+          font-size: 11px;
+    }
+
+
+    .line{
+      color: #bfbdbd;
+    }
+
+    .free-button{
+
+          background: #1565c0;
+    height: 52px;
+    font-size: 15px;
+    border-radius: 8px;
+    }
+
+
+    .payment-card-body{
+
+    flex: 1 1 auto;
+    padding: 24px 1rem !important;
+
+    }
+  </style>
+   {% if messages %}
+      {% for i in messages %}
+           {% if i.tags == 'warning' %}
+               <script>
+                    swal('{{i}}','','warning');
+               </script>
+           {% elif i.tags == 'error' %}
+               <script>
+                    swal('{{i}}','','error');
+               </script>
+           {% else %}
+               <script>
+                    swal('{{i}}','','success');
+               </script>
+           {% endif %}
+        {% endfor %}
+      {% endif %}
+  </body>
+</html>

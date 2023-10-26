@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Category</title>
+</head>
+<body>
+<div class="card-body">
+              <h5 class="card-title">Display Booking of Users-Rent Property(Admin Side)</h5>
+			  <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                    <tr>
+
+                      <th scope="col">Booking ID</th>
+                      <th scope="col">Booking Date</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Mail</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Property Address</th>
+                    </tr>
+                  </thead>
+                   {% for i in data %}
+                  <tbody>
+                    <tr>
+                      <td>{{i.Bookingid}}</td>
+                      <td>{{i.Booking_date}}</td>
+                      <td>{{i.Username}}</td>
+                      <td>{{i.Mobile_User}}</td>
+                      <td>{{i.Mail}}</td>
+                      <td>{{i.Address}}</td>
+                      <td>{{i.Price}}</td>
+                      <td>{{i.Property_Address}}</td>
+
+
+
+
+
+
+
+                    </tr>
+                  </tbody>
+                   {% endfor %}
+                </table>
+            </div>
+            </div>
+</body>
+</html>
+{% endblock %}
