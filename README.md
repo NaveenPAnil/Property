@@ -16,6 +16,8 @@ This project comes with several features to enhance the user experience:
    - Request Inquiry : Send inquiries about properties to property owners.
    - WhatsApp Chat : Connect with property owners via WhatsApp.
    - Wishlist : Save properties you're interested in to your wishlist.
+
+
 Installation
    - Operating System: Windows 8, 10, or macOS High Sierra (10.13) or later
    - Processor: Intel Core i5 or AMD Ryzen 5 2500U CPU
